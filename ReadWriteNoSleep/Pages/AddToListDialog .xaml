@@ -1,0 +1,38 @@
+﻿<Window x:Class="ReadWriteNoSleep.Pages.AddToListDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Добавить в список" Height="320" Width="360"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="#1e1e2e">
+
+    <StackPanel Margin="24">
+        <TextBlock Text="Выберите список"
+                   Foreground="White" FontSize="16" FontWeight="Bold"
+                   Margin="0,0,0,20"/>
+
+        <Button Content="📖 Читаю"
+                Background="#313244" Foreground="White"
+                BorderThickness="0" Height="44" Margin="0,0,0,8"
+                FontSize="14"
+                Click="BtnReading_Click"/>
+
+        <Button Content="📌 В планах"
+                Background="#313244" Foreground="White"
+                BorderThickness="0" Height="44" Margin="0,0,0,8"
+                FontSize="14"
+                Click="BtnPlanned_Click"/>
+
+        <Button Content="✅ Прочитано"
+                Background="#313244" Foreground="White"
+                BorderThickness="0" Height="44" Margin="0,0,0,8"
+                FontSize="14"
+                Click="BtnCompleted_Click"/>
+
+        <Button Content="🗑️ Заброшено"
+                Background="#313244" Foreground="White"
+                BorderThickness="0" Height="44"
+                FontSize="14"
+                Click="BtnAbandoned_Click"/>
+    </StackPanel>
+</Window>

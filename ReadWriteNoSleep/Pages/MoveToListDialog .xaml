@@ -1,0 +1,39 @@
+﻿<!-- MoveToListDialog.xaml -->
+<Window x:Class="ReadWriteNoSleep.Pages.MoveToListDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Переместить в список" Height="320" Width="320"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="#1e1e2e">
+
+    <StackPanel Margin="24">
+        <TextBlock Text="Переместить в список"
+                   Foreground="White" FontSize="16" FontWeight="Bold"
+                   Margin="0,0,0,4"/>
+
+        <TextBlock x:Name="TxtCurrent"
+                   Foreground="#6c7086" FontSize="12"
+                   Margin="0,0,0,20"/>
+
+        <Button x:Name="BtnReading" Content="📖 Читаю"
+                Background="#313244" Foreground="White"
+                BorderThickness="0" Height="40" Margin="0,0,0,8"
+                Click="BtnReading_Click"/>
+
+        <Button x:Name="BtnPlanned" Content="📌 В планах"
+                Background="#313244" Foreground="White"
+                BorderThickness="0" Height="40" Margin="0,0,0,8"
+                Click="BtnPlanned_Click"/>
+
+        <Button x:Name="BtnCompleted" Content="✅ Прочитано"
+                Background="#313244" Foreground="White"
+                BorderThickness="0" Height="40" Margin="0,0,0,8"
+                Click="BtnCompleted_Click"/>
+
+        <Button x:Name="BtnAbandoned" Content="🗑️ Заброшено"
+                Background="#313244" Foreground="White"
+                BorderThickness="0" Height="40"
+                Click="BtnAbandoned_Click"/>
+    </StackPanel>
+</Window>

@@ -1,0 +1,34 @@
+﻿<!-- ChangeRoleDialog.xaml -->
+<Window x:Class="ReadWriteNoSleep.Pages.ChangeRoleDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Сменить роль" Height="260" Width="360"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="#1e1e2e">
+
+    <StackPanel Margin="24">
+        <TextBlock Text="Выберите роль"
+                   Foreground="White" FontSize="16" FontWeight="Bold"
+                   Margin="0,0,0,6"/>
+
+        <TextBlock x:Name="TxtUserName"
+                   Foreground="#6c7086" FontSize="12"
+                   Margin="0,0,0,20"/>
+
+        <Button Content="👤 Пользователь"
+                Background="#313244" Foreground="White"
+                BorderThickness="0" Height="40" Margin="0,0,0,8"
+                Click="BtnUser_Click"/>
+
+        <Button Content="✍️ Автор"
+                Background="#313244" Foreground="White"
+                BorderThickness="0" Height="40" Margin="0,0,0,8"
+                Click="BtnAuthor_Click"/>
+
+        <Button Content="🛡️ Администратор"
+                Background="#313244" Foreground="White"
+                BorderThickness="0" Height="40"
+                Click="BtnAdmin_Click"/>
+    </StackPanel>
+</Window>

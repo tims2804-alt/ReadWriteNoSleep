@@ -1,0 +1,41 @@
+﻿<!-- AppealBookFreezeDialog.xaml -->
+<Window x:Class="ReadWriteNoSleep.Pages.AppealBookFreezeDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Оспорить заморозку книги" Height="280" Width="420"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="#1e1e2e">
+
+    <StackPanel Margin="24">
+        <TextBlock Text="Оспорить заморозку книги"
+                   Foreground="White" FontSize="16" FontWeight="Bold"
+                   Margin="0,0,0,8"/>
+
+        <TextBlock Text="Опишите почему вы считаете заморозку несправедливой"
+                   Foreground="#6c7086" FontSize="12"
+                   TextWrapping="Wrap"
+                   Margin="0,0,0,12"/>
+
+        <TextBox x:Name="TxtReason"
+                 Background="#313244" Foreground="White"
+                 BorderThickness="0" Padding="10"
+                 Height="100" TextWrapping="Wrap"
+                 AcceptsReturn="True"
+                 Margin="0,0,0,16"/>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Отмена"
+                    Background="#313244" Foreground="White"
+                    BorderThickness="0" Padding="16,8"
+                    Margin="0,0,8,0"
+                    Click="BtnCancel_Click"/>
+
+            <Button Content="Отправить"
+                    Background="#cba6f7" Foreground="#1e1e2e"
+                    BorderThickness="0" Padding="16,8"
+                    FontWeight="Bold"
+                    Click="BtnSubmit_Click"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

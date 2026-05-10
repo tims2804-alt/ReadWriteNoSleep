@@ -1,0 +1,143 @@
+﻿<!-- AuthorPage.xaml -->
+<Page x:Class="ReadWriteNoSleep.Pages.AuthorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Страница автора"
+      Background="#181825">
+
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок + кнопка добавить -->
+        <Grid Grid.Row="0" Margin="0,0,0,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0"
+                       Text="Мои книги"
+                       Foreground="White"
+                       FontSize="22" FontWeight="Bold"
+                       VerticalAlignment="Center"/>
+
+            <Button Grid.Column="1"
+                    Content="+ Добавить книгу"
+                    Background="#cba6f7" Foreground="#1e1e2e"
+                    BorderThickness="0" Padding="16,8"
+                    FontWeight="Bold"
+                    Click="BtnAddBook_Click"/>
+        </Grid>
+
+        <!-- Переключение: Опубликованные / Замороженные -->
+        <Grid Grid.Row="1" Margin="0,0,0,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="BtnPublished"
+                    Content="📚 Опубликованные"
+                    Grid.Column="0"
+                    Background="#cba6f7" Foreground="#1e1e2e"
+                    BorderThickness="0" Height="36"
+                    FontWeight="Bold" Padding="16,0"
+                    Margin="0,0,8,0"
+                    Click="BtnPublished_Click"/>
+
+            <Button x:Name="BtnFrozen"
+                    Content="🔒 Замороженные"
+                    Grid.Column="1"
+                    Background="#313244" Foreground="White"
+                    BorderThickness="0" Height="36"
+                    FontWeight="Bold" Padding="16,0"
+                    Click="BtnFrozen_Click"/>
+        </Grid>
+
+        <!-- Список книг -->
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <TextBlock x:Name="TxtEmpty"
+                           Text="Книг пока нет"
+                           Foreground="#6c7086" FontSize="16"
+                           HorizontalAlignment="Center"
+                           Margin="0,40,0,0"
+                           Visibility="Collapsed"/>
+
+                <ItemsControl x:Name="BooksList">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="#313244"
+                                    CornerRadius="8"
+                                    Padding="16"
+                                    Margin="0,0,0,8">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Инфо о книге -->
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock Text="{Binding Title}"
+                                                   Foreground="White"
+                                                   FontSize="16" FontWeight="Bold"
+                                                   Margin="0,0,0,4"/>
+
+                                        <TextBlock Text="{Binding Description}"
+                                                   Foreground="#6c7086"
+                                                   FontSize="12"
+                                                   TextWrapping="Wrap"
+                                                   MaxHeight="36"
+                                                   Margin="0,0,0,4"/>
+
+                                        <TextBlock x:Name="TxtFrozenLabel"
+                                                   Text="🔒 Заморожена"
+                                                   Foreground="#f38ba8"
+                                                   FontSize="12"
+                                                   Visibility="{Binding FrozenVisibility}"/>
+                                    </StackPanel>
+
+                                    <!-- Кнопки -->
+                                    <StackPanel Grid.Column="1"
+                                                VerticalAlignment="Center"
+                                                Margin="12,0,0,0">
+
+                                        <!-- Кнопки для обычных книг -->
+                                        <Button Content="✏️ Редактировать"
+                                                Background="#45475a" Foreground="White"
+                                                BorderThickness="0" Padding="12,6"
+                                                Margin="0,0,0,6"
+                                                Tag="{Binding BookId}"
+                                                Visibility="{Binding PublishedVisibility}"
+                                                Click="BtnEditBook_Click"/>
+
+                                        <Button Content="👁️ Открыть"
+                                                Background="#45475a" Foreground="White"
+                                                BorderThickness="0" Padding="12,6"
+                                                Tag="{Binding BookId}"
+                                                Visibility="{Binding PublishedVisibility}"
+                                                Click="BtnViewBook_Click"/>
+
+                                        <!-- Кнопка для замороженных -->
+                                        <Button Content="Оспорить заморозку"
+                                                Background="#f38ba8" Foreground="#1e1e2e"
+                                                BorderThickness="0" Padding="12,6"
+                                                FontWeight="Bold"
+                                                Tag="{Binding BookId}"
+                                                Visibility="{Binding FrozenVisibility}"
+                                                Click="BtnAppealBook_Click"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
